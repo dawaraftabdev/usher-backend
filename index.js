@@ -5,7 +5,8 @@ const {
   getHeader,
   getFooter,
   getBody,
-  getSocialLoginsBody
+  getSocialLoginsBody,
+  getInfoWizardBody
 } = require('./common')
 
 const uuidv4 = v4
@@ -94,6 +95,34 @@ app.get('/social-login', (req, res) => {
   res.json({
     page: 'layout',
     components: [header, socialLogins, footer]
+  })
+})
+app.get('/info-wizard', (req, res) => {
+  const header = {
+    id: uuidv4(),
+    type: 'header',
+    props: {
+      components: getHeader()
+    }
+  }
+  const footer = {
+    id: uuidv4(),
+    type: 'footer',
+    props: {
+      components: getFooter()
+    }
+  }
+  const infoWizard = {
+    id: uuidv4(),
+    type: 'body',
+    props: {
+      components: getInfoWizardBody()
+    }
+  }
+
+  res.json({
+    page: 'layout',
+    components: [header, infoWizard, footer]
   })
 })
 

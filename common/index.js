@@ -1,6 +1,82 @@
 const { v4 } = require('uuid')
 const uuidv4 = v4
 
+const getWizardInfoSteps = () => {
+  const step1 = {
+    id: uuidv4(),
+    type: 'step',
+    props: {
+      components: [
+        {
+          id: uuidv4(),
+          type: 'userWelcomeText',
+          props: {
+            value: 'Hi Amanda'
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'heading',
+          props: {
+            value: `Let's get started!`
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'form',
+          props: {
+            components: [
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'First Name',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Last Name',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'datePicker',
+                props: {
+                  name: 'Date of Birth',
+                  startYear: `1940`,
+                  endYear: new Date().getFullYear(),
+                  placeholderText: 'MM/DD/YYYY',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Phone number',
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+  const steps = {
+    id: uuidv4(),
+    type: 'steps',
+    props: {
+      components: [step1]
+    }
+  }
+  return steps
+}
+
 module.exports = {
   getHeader: () => {
     const logo = {
@@ -229,5 +305,67 @@ module.exports = {
       }
     }
     return [heading, subHeading, logins]
+  },
+  getInfoWizardBody: () => {
+    const rightSide = {
+      id: uuidv4(),
+      type: 'bodyColumn',
+      props: {
+        components: [
+          {
+            id: uuidv4(),
+            type: 'map',
+            props: {
+              location: 'new york'
+            }
+          },
+          {
+            id: uuidv4(),
+            type: 'address',
+            components: [
+              {
+                id: uuidv4(),
+                type: 'text',
+                props: {
+                  style: {
+                    fontWeight: 'bold'
+                  },
+                  value: 'Sky - Luxury Apartment Rentals'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'text',
+                props: {
+                  value: '605 W 42nd st.'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'text',
+                props: {
+                  value: 'New York, NY 10036'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'text',
+                props: {
+                  value: 'United States'
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    const leftSide = {
+      id: uuidv4(),
+      type: 'bodyColumn',
+      props: {
+        components: [getWizardInfoSteps()]
+      }
+    }
+    return [leftSide, rightSide]
   }
 }
