@@ -150,6 +150,13 @@ module.exports = {
             type: 'text',
             props: {
               bold: true,
+              styles: {
+                fontFamily: 'Gilroy',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                lineHeight: '24px',
+                color: '#161657'
+              },
               value: `Enter your email and we'll send you a link to get started.`
             }
           },
@@ -197,6 +204,9 @@ module.exports = {
             type: 'text',
             props: {
               isBottom: true,
+              styles: {
+                margin: '24px 0'
+              },
               value:
                 'We are a Fintech company that is rethinking insurance products and financial solutions for  residential and commercial real estate professionals as well as their residents and tenants. '
             }
@@ -213,6 +223,9 @@ module.exports = {
                   isBottom: true,
                   props: {
                     isBottom: true,
+                    styles: {
+                      margin: '0'
+                    },
                     value: 'success@theguarantors.com'
                   }
                 },
@@ -222,6 +235,9 @@ module.exports = {
                   isBottom: true,
                   props: {
                     isBottom: true,
+                    styles: {
+                      margin: '0'
+                    },
                     value: '7 World Trade Center New York, NY 10007'
                   }
                 }
