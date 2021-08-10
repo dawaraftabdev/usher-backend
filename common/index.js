@@ -1,19 +1,13 @@
 const { v4 } = require('uuid')
 const uuidv4 = v4
 
-const getWizardInfoSteps = () => {
-  const step1 = {
+const getWizardInfoActiveStep = activeStep => {
+  const allSteps = []
+  allSteps.push({
     id: uuidv4(),
     type: 'step',
     props: {
       components: [
-        {
-          id: uuidv4(),
-          type: 'userWelcomeText',
-          props: {
-            value: 'Hi Amanda'
-          }
-        },
         {
           id: uuidv4(),
           type: 'heading',
@@ -60,18 +54,100 @@ const getWizardInfoSteps = () => {
                   label: 'Phone number',
                   required: true
                 }
+              },
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'primary',
+                  text: 'Continue'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'secondary',
+                  text: 'My name is incorrect'
+                }
               }
             ]
           }
         }
       ]
     }
-  }
+  })
+  allSteps.push({
+    id: uuidv4(),
+    type: 'step',
+    props: {
+      components: [
+        {
+          id: uuidv4(),
+          type: 'userWelcomeText',
+          props: {
+            value: 'Your Home'
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'heading',
+          props: {
+            value: `Where do you currently reside?`
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'form',
+          props: {
+            components: [
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Address',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Unit / Floor',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'checkbox',
+                props: {
+                  name: 'firstTimeRenter',
+                  optional: true,
+                  children: `I'm a first time renter`
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'primary',
+                  text: 'Continue'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  })
+
+  let stepToShow = allSteps[activeStep - 1]
+
   const steps = {
     id: uuidv4(),
     type: 'steps',
     props: {
-      components: [step1]
+      components: [stepToShow]
     }
   }
   return steps
@@ -133,9 +209,9 @@ module.exports = {
     }
     const subHeading = {
       id: uuidv4(),
-      type: 'heading',
+      type: 'text',
       props: {
-        isSub: true,
+        isHelperText: true,
         value: `With Security Deposit Replacement, you'll no longer have to provide a cash security deposit.`
       }
     }
@@ -308,13 +384,22 @@ module.exports = {
         components: [
           {
             id: uuidv4(),
-            type: 'socialButton',
+            type: 'googleButton',
             props: {
               size: 'm',
               bType: 'primary',
               onClick: {},
-              logo: 'google-logo.png',
               text: 'Continue with google'
+            }
+          },
+          {
+            id: uuidv4(),
+            type: 'facebookButton',
+            props: {
+              size: 'm',
+              bType: 'primary',
+              onClick: {},
+              text: 'Continue with facebook'
             }
           }
         ]
@@ -322,7 +407,7 @@ module.exports = {
     }
     return [heading, subHeading, logins]
   },
-  getInfoWizardBody: () => {
+  getInfoWizardBody: activeStep => {
     const rightSide = {
       id: uuidv4(),
       type: 'bodyColumn',
@@ -379,7 +464,7 @@ module.exports = {
       id: uuidv4(),
       type: 'bodyColumn',
       props: {
-        components: [getWizardInfoSteps()]
+        components: [getWizardInfoActiveStep(activeStep)]
       }
     }
     return [leftSide, rightSide]

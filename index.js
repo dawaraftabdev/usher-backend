@@ -97,7 +97,7 @@ app.get('/social-login', (req, res) => {
     components: [header, socialLogins, footer]
   })
 })
-app.get('/info-wizard', (req, res) => {
+app.get('/info-wizard/step/:activeStep', (req, res) => {
   const header = {
     id: uuidv4(),
     type: 'header',
@@ -116,7 +116,7 @@ app.get('/info-wizard', (req, res) => {
     id: uuidv4(),
     type: 'body',
     props: {
-      components: getInfoWizardBody()
+      components: getInfoWizardBody(req.params.activeStep || 1)
     }
   }
 
