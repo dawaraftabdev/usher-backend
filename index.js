@@ -60,7 +60,15 @@ app.get('/layout', (req, res) => {
     id: uuidv4(),
     type: 'body',
     props: {
-      components: getBody()
+      components: [
+        {
+          id: uuidv4(),
+          type: 'bodyColumn',
+          props: {
+            components: getBody()
+          }
+        }
+      ]
     }
   }
 
@@ -88,7 +96,18 @@ app.get('/social-login', (req, res) => {
     id: uuidv4(),
     type: 'body',
     props: {
-      components: getSocialLoginsBody()
+      components: [
+        {
+          id: uuidv4(),
+          type: 'bodyColumn',
+          props: {
+            styles: {
+              textAlign: 'center'
+            },
+            components: getSocialLoginsBody()
+          }
+        }
+      ]
     }
   }
 

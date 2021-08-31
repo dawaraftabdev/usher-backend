@@ -98,6 +98,13 @@ const getWizardInfoActiveStep = activeStep => {
         },
         {
           id: uuidv4(),
+          type: 'box',
+          props: {
+            height: '25px'
+          }
+        },
+        {
+          id: uuidv4(),
           type: 'form',
           props: {
             components: [
@@ -111,10 +118,24 @@ const getWizardInfoActiveStep = activeStep => {
               },
               {
                 id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '15px'
+                }
+              },
+              {
+                id: uuidv4(),
                 type: 'inputField',
                 props: {
                   label: 'Unit / Floor',
                   required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '15px'
                 }
               },
               {
@@ -140,6 +161,316 @@ const getWizardInfoActiveStep = activeStep => {
       ]
     }
   })
+  allSteps.push({
+    id: uuidv4(),
+    type: 'step',
+    props: {
+      components: [
+        {
+          id: uuidv4(),
+          type: 'userWelcomeText',
+          props: {
+            value: 'Your Residency'
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'heading',
+          props: {
+            value: `Are you a US Citizen or Green Card Holder?`
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'form',
+          props: {
+            components: [
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'yes',
+                  bordered: true,
+                  iconKey: 'USFlag',
+                  name: 'usCitizen',
+                  text: 'Yes, I’m a US Citizen or Green Card Holder.'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'no',
+                  checked: false,
+                  bordered: true,
+                  name: 'usCitizen',
+                  text: 'No, I am not.'
+                }
+              },
+
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'primary',
+                  text: 'Continue'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  })
+  allSteps.push({
+    id: uuidv4(),
+    type: 'step',
+    props: {
+      components: [
+        {
+          id: uuidv4(),
+          type: 'userWelcomeText',
+          props: {
+            value: 'Your Occupation'
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'heading',
+          props: {
+            value: `What’s your employment status?`
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'form',
+          props: {
+            components: [
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'employed',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Employed'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'self-employed',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Self-Employed'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'full-time-student',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Full-Time Student'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'retired',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Retired'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'unemployed',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Unemployed'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'radio',
+                props: {
+                  buttonValue: 'corporation',
+                  bordered: true,
+                  name: 'employmentStatus',
+                  text: 'Enrolling as a Corporation'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '20px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Annual Income',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'primary',
+                  text: 'Continue'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  })
+  allSteps.push({
+    id: uuidv4(),
+    type: 'step',
+    props: {
+      components: [
+        {
+          id: uuidv4(),
+          type: 'userWelcomeText',
+          props: {
+            value: 'You’re Almost There'
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'heading',
+          props: {
+            value: `What’s your SSN?`
+          }
+        },
+        {
+          id: uuidv4(),
+          type: 'form',
+          props: {
+            components: [
+              {
+                id: uuidv4(),
+                type: 'inputField',
+                props: {
+                  label: 'Social Security Number',
+                  required: true
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '15px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'checkbox',
+                props: {
+                  name: 'noSSN',
+                  optional: true,
+                  children: `I don’t have a Social Security Number.`
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '15px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'scrollableArea',
+                props: {
+                  height: `165px`,
+                  text: `Please authorize TheGuarantors to do a soft credit/background check, which includes credit history, and immigration and other law enforcement records (as applicable), and share your information with relevant third parties as necessary for this application and all future renewals. I expressly acknowledge that this authorization will be in full force and effect onceI press "Get a Quote" below.
+                  I hereby expressly authorize TheGuarantors Agency and The Surety to (a) request and obtain from third parties information and documentation related to me, including, but not limited to, personal information and documentation, such as credit records, immigration and other law enforcements records (as applicable), and related information and documentation, an any additional information and documentation as may be reasonably necessary; and (b) share such information and documentation, as well as any personal information and documentation provided by me (whether currently in possession of TheGuarantors Agency or The Surety, or hereafter obtained), with third parties, including, but not limited to, landlords, brokers, management companies and other third parties, in connection with (i) underwriting and credit evaluation, including, but not limited to, verification or analysis or any information, documentation or records provided and obtained; (ii) claim investigation or collection; (iii) rental or lease application; and (iv) any other purpose TheGuarantors Agency or The Surety deem reasonably necessary in connection with the Lease Rental Bond, or reinsurance thereof.`
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'box',
+                props: {
+                  height: '15px'
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'checkbox',
+                props: {
+                  name: 'authorizeBackground',
+                  optional: true,
+                  children: `I authorize TheGuarantors to do a soft credit/background check.`
+                }
+              },
+              {
+                id: uuidv4(),
+                type: 'button',
+                props: {
+                  bType: 'primary',
+                  text: 'Get Quote'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  })
 
   let stepToShow = allSteps[activeStep - 1]
 
@@ -151,6 +482,27 @@ const getWizardInfoActiveStep = activeStep => {
     }
   }
   return steps
+}
+const getStepsProgressBar = (activeStep, totalSteps) => {
+  const stepDots = []
+
+  for (let i = 1; i <= totalSteps; i++) {
+    stepDots.push({
+      id: uuidv4(),
+      type: 'stepDot',
+      props: {
+        complete: i <= activeStep
+      }
+    })
+  }
+
+  return {
+    id: uuidv4(),
+    type: 'stepDots',
+    props: {
+      components: stepDots
+    }
+  }
 }
 
 module.exports = {
@@ -366,12 +718,12 @@ module.exports = {
       id: uuidv4(),
       type: 'heading',
       props: {
-        value: 'Welcome to TheGuarantors'
+        value: 'Welcome to The Guarantors'
       }
     }
     const subHeading = {
       id: uuidv4(),
-      type: 'heading',
+      type: 'text',
       props: {
         isSub: true,
         value: `Use a Google/Facebook account with the same email address as in your leasing application.`
@@ -410,63 +762,76 @@ module.exports = {
   getInfoWizardBody: activeStep => {
     const rightSide = {
       id: uuidv4(),
-      type: 'bodyColumn',
+      type: 'questionnaireRight',
       props: {
         components: [
           {
             id: uuidv4(),
             type: 'map',
             props: {
-              location: 'new york'
+              src: 'map-image.png'
             }
           },
           {
             id: uuidv4(),
             type: 'address',
-            components: [
-              {
-                id: uuidv4(),
-                type: 'text',
-                props: {
-                  style: {
-                    fontWeight: 'bold'
-                  },
-                  value: 'Sky - Luxury Apartment Rentals'
+            props: {
+              components: [
+                {
+                  id: uuidv4(),
+                  type: 'text',
+                  props: {
+                    style: {
+                      fontWeight: 'bold'
+                    },
+                    value: 'Sky - Luxury Apartment Rentals'
+                  }
+                },
+                {
+                  id: uuidv4(),
+                  type: 'text',
+                  props: {
+                    value: '605 W 42nd st.'
+                  }
+                },
+                {
+                  id: uuidv4(),
+                  type: 'text',
+                  props: {
+                    value: 'New York, NY 10036'
+                  }
+                },
+                {
+                  id: uuidv4(),
+                  type: 'text',
+                  props: {
+                    value: 'United States'
+                  }
                 }
-              },
-              {
-                id: uuidv4(),
-                type: 'text',
-                props: {
-                  value: '605 W 42nd st.'
-                }
-              },
-              {
-                id: uuidv4(),
-                type: 'text',
-                props: {
-                  value: 'New York, NY 10036'
-                }
-              },
-              {
-                id: uuidv4(),
-                type: 'text',
-                props: {
-                  value: 'United States'
-                }
-              }
-            ]
+              ]
+            }
           }
         ]
       }
     }
     const leftSide = {
       id: uuidv4(),
-      type: 'bodyColumn',
+      type: 'questionnaireLeft',
       props: {
-        components: [getWizardInfoActiveStep(activeStep)]
+        components: [
+          getStepsProgressBar(activeStep, 6),
+          getWizardInfoActiveStep(activeStep)
+        ]
       }
     }
-    return [leftSide, rightSide]
+    return [
+      {
+        id: uuidv4(),
+        type: 'questionnaire',
+        props: {
+          components: [leftSide, rightSide]
+        }
+      }
+    ]
   }
 }
